@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Lista de Pessoas</title>
+        <style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+    </h:head>
+    <h:body  style="background: url('https://www.florus.com.br/wp-content/uploads/2018/04/site-background.jpg') repeat !important;">
+        <h:form id="pessoaForm">
+            <h:dataTable value="#{pessoaMB.listar()}" var="pessoaListado" style="width:90%">
+                 
+                <h:column>
+                    <f:facet name="header">Id</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.id}"/>
+                </h:column>
+                <h:column>                   
+                    <f:facet name="header">Nome</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.nome}"/>                    
+                </h:column>
+                <h:column>
+                    
+                    <f:facet name="header">Login</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.login}"/>
+                    
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cpf</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.cpf}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.email}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Sexo</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.sexo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Endereço</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.endereco}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Número</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.numero}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.telefone}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cidade</f:facet><font></font>
+                    <h:outputText value="#{pessoaListado.cidade}"/>
+                </h:column>
+                <h:column> 
+                    <h:commandButton actionListener="#{pessoaMB.excluir(pessoaListado.id)}" value="Excluir" /> 
+                </h:column> 
+                <h:column> 
+                    <h:commandButton action="index" value="Alterar">
+                        <f:param name="id" value="#{pessoaListado.id}" />
+                    </h:commandButton>
+                </h:column>
+                
+            </h:dataTable>
+        </h:form>
+        
+        <h:form>
+            <h:commandButton action="index" value="Cadastrar"   />
+        </h:form>
+        
+    </h:body>
+</html>

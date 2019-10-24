@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"
+ 
+xmlns:h="http://java.sun.com/jsf/html"
+    
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+ 
+<h:head>
+ 
+<title>Site de Cadastro</title>
+ 
+</h:head>
+ 
+<h:body style="background: url('https://www.florus.com.br/wp-content/uploads/2018/04/site-background.jpg') repeat !important;">
+
+    
+<h1><h:outputText id="bemVindo" value="Bem vindo(a) ao sistema de cadastro."  style="; color: red"/></h1>
+
+<h2><h:outputText id="inserirDados" value="Porfavor insira seus dados abaixo: " style=" color: darkred"/></h2>
+    
+<h:form>
+ 
+<h:panelGrid columns="3">
+
+<div> 
+        
+<h:outputLabel value="Nome:"/>
+ 
+<h:inputText id="nome" value="#{pessoaMB.pessoa.nome}" size="20"  required="true" requiredMessage="Campo Obrigatório"/>
+ 
+<h:message for="nome" />
+
+<h:outputLabel value="Login:"/>
+ 
+<h:inputText id="Login" value="#{pessoaMB.pessoa.login}" size="20"  required="true" requiredMessage="Campo Obrigatório"/>
+ 
+<h:message for="login" />
+
+<h:outputLabel value="Cpf:"/>
+ 
+<h:inputText id="Cpf" value="#{pessoaMB.pessoa.cpf}" size="20"  required="true" requiredMessage="Campo Obrigatório"/>
+ 
+<h:message for="cpf" />
+
+<h:outputLabel value="Email:"/>
+ 
+<h:inputText id="Email" value="#{pessoaMB.pessoa.email}" size="20"  required="true" requiredMessage="Campo Obrigatório"/>
+ 
+<h:message for="email" />
+ 
+<h:outputLabel value="Endereço:"/>
+ 
+<h:inputText id="end" value="#{pessoaMB.pessoa.endereco}" size="20" required="true" requiredMessage="Campo Obrigatório"/>
+ 
+<h:message for="end" />
+ 
+<h:outputLabel value="Número:"/>
+ 
+<h:inputText id="nro" value="#{pessoaMB.pessoa.numero}" size="20" />
+ 
+<h:message for="nro" />
+ 
+<h:outputLabel value="Telefone:"/>
+ 
+<h:inputText id="tel" value="#{pessoaMB.pessoa.telefone}" size="20" />
+ 
+<h:message for="tel" />
+ 
+<h:outputLabel value="Cidade:"/>
+<select>
+    
+  <option value="Fortaleza">Fortaleza</option>#{pessoaMB.pessoa.cidade}
+  <option value="Canindé">Canindé</option>#{pessoaMB.pessoa.cidade}
+  <option value="Viçosa">Viçosa</option>#{pessoaMB.pessoa.cidade}
+  <option value="Sobral">Sobral</option>#{pessoaMB.pessoa.cidade}
+  
+</select>
+
+<h:outputLabel value="Sexo: "/>
+
+<h:selectOneRadio>
+
+    <f:selectItem itemLabel="Masculino" itemValue="M"/>#{pessoaMB.pessoa.sexo}
+    <f:selectItem itemLabel="Feminino" itemValue="F"/>#{pessoaMB.pessoa.sexo}
+
+</h:selectOneRadio>
+
+</div>
+    
+<h:commandButton id="btnE" value="Cadastrar"  type="submit" action="#{pessoaMB.cadastrar}" />
+  
+<h:commandButton id="btnL" value="Limpar" type="reset"/>
+    
+
+ 
+</h:panelGrid>
+    
+</h:form>
+ 
+</h:body>
+ 
+</html>
