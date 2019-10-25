@@ -70,14 +70,15 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:message for="tel" />
  
 <h:outputLabel value="Cidade:"/>
-<select>
+ 
+<h:selectOneMenu value="#{pessoaMB.pessoa.cidade}">
     
-  <option value="Fortaleza">Fortaleza</option>#{pessoaMB.pessoa.cidade}
-  <option value="Canindé">Canindé</option>#{pessoaMB.pessoa.cidade}
-  <option value="Viçosa">Viçosa</option>#{pessoaMB.pessoa.cidade}
-  <option value="Sobral">Sobral</option>#{pessoaMB.pessoa.cidade}
-  
-</select>
+    <f:selectItem itemValue="Fortaleza" itemLabel="Fortaleza"/>
+    <f:selectItem  itemValue="Viçosa" itemLabel="Viçosa"/>
+    <f:selectItem  itemValue="Canindé" itemLabel="Canindé"/>
+    <f:selectItem  itemValue="Sobral" itemLabel="Sobral"/>
+    
+</h:selectOneMenu>
 
 <h:outputLabel value="Sexo: "/>
 
